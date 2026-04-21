@@ -198,37 +198,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
-  }
-
-  .pfp-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: var(--tag-bg);
-  }
-
-  .pfp-placeholder svg { opacity: 0.3; }
-
-  .pfp-placeholder span {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    opacity: 0.7;
-  }
-
-  .pfp-input { display: none; }
-
-  .pfp-hint {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    display: block;
   }
 
   .hero-stats {
@@ -581,21 +551,10 @@
   </div>
 
   <div class="hero-right">
-    <!-- PROFILE PICTURE — click to upload -->
-    <label for="pfp-input" style="cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:12px;">
-      <div class="pfp-frame" id="pfp-frame">
-        <div class="pfp-placeholder" id="pfp-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="18" r="9" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M6 42c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span>Add your photo</span>
-        </div>
-        <img id="pfp-img" src="" alt="Profile picture" />
-      </div>
-      <span class="pfp-hint"></span>
-    </label>
-    <input type="file" accept="image/*" id="pfp-input" class="pfp-input" />
+    <!-- PROFILE PICTURE -->
+    <div class="pfp-frame" id="pfp-frame">
+      <img id="pfp-img" src="my pic.png" alt="Profile picture" />
+    </div>
 
     <div class="hero-stats">
       <div class="stat">
@@ -728,7 +687,7 @@
     <h2 class="section-title neon-title">Projects</h2>
   </div>
   <div class="projects-grid">
-    <a href="#" class="project-card">
+    <a href="https://github.com/SAFIR-abdelaali/Fraud-Detection" class="project-card" target="_blank" rel="noopener">
       <div class="project-top">
         <h3 class="project-title">Fraud Detection system</h3>
         <span class="project-arrow">↗</span>
@@ -742,7 +701,7 @@
         <span class="tag">Scikit-learn</span>
       </div>
     </a>
-    <a href="#" class="project-card">
+    <a href="https://github.com/SAFIR-abdelaali/SIR-Rumor-Detection" class="project-card" target="_blank" rel="noopener">
       <div class="project-top">
         <h3 class="project-title">SIR Rumor detection</h3>
         <span class="project-arrow">↗</span>
@@ -758,7 +717,7 @@
         <span class="tag">Streamlit</span>
       </div>
     </a>
-    <a href="#" class="project-card">
+    <a href="https://github.com/SAFIR-abdelaali/Job-recruitement-web-app" class="project-card" target="_blank" rel="noopener">
       <div class="project-top">
         <h3 class="project-title">JobReruit</h3>
         <span class="project-arrow">↗</span>
@@ -775,7 +734,7 @@
         <span class="tag">JavaMail</span>
       </div>
     </a>
-    <a href="#" class="project-card">
+    <a href="https://github.com/SAFIR-abdelaali/ToolRent" class="project-card" target="_blank" rel="noopener">
       <div class="project-top">
         <h3 class="project-title">ToolRent</h3>
         <span class="project-arrow">↗</span>
@@ -802,27 +761,11 @@
   </div>
   <div class="exp-list">
     <div class="exp-item">
-      <div class="exp-period">2022 — Present</div>
+      <div class="exp-period">June — July 2025</div>
       <div>
-        <div class="exp-role">Senior Data Scientist</div>
-        <div class="exp-company">Company Name</div>
-        <p class="exp-desc">Led ML platform development for personalization and recommendations. Managed a team of 3 junior scientists and defined the roadmap for experiment infrastructure.</p>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-period">2020 — 2022</div>
-      <div>
-        <div class="exp-role">Data Scientist</div>
-        <div class="exp-company">Company Name</div>
-        <p class="exp-desc">Built and maintained production models for fraud detection and risk scoring. Collaborated closely with product and engineering to ship ML features end-to-end.</p>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-period">2019 — 2020</div>
-      <div>
-        <div class="exp-role">Data Analyst</div>
-        <div class="exp-company">Company Name</div>
-        <p class="exp-desc">Designed dashboards and automated reporting pipelines. First DS hire — built the analytics foundation from scratch using Python and SQL.</p>
+        <div class="exp-role">Data Science Internship</div>
+        <div class="exp-company">IAWEB.DEV</div>
+        <p class="exp-desc">Built a comparative ML model evaluation platform for ranking and clustering, implementing algorithms like Wilson Score, K-means, DBSCAN, GMM, and Hierarchical Clustering, with end-to-end data engineering (NDJSON to CSV), statistical benchmarking via Kendall's tau-b, an interactive Gradio interface, and full system design using UML and PowerAMC.</p>
       </div>
     </div>
   </div>
@@ -835,19 +778,19 @@
     <p class="contact-sub">Open to full-time roles, consulting, and interesting side projects. Always happy to chat data science.</p>
   </div>
   <div class="contact-right">
-    <a href="mailto:you@email.com" class="contact-link">
+    <a href="mailto:safirabdelaali@gmail.com" class="contact-link">
       <span class="contact-link-label">Email</span>
-      <span class="contact-link-value">you@email.com</span>
+      <span class="contact-link-value">safirabdelaali@gmail.com</span>
     </a>
-    <a href="https://linkedin.com/in/yourhandle" class="contact-link" target="_blank" rel="noopener">
+    <a href="https://www.linkedin.com/in/abdelaali-safir-0b34aa29b/" class="contact-link" target="_blank" rel="noopener">
       <span class="contact-link-label">LinkedIn</span>
-      <span class="contact-link-value">in/yourhandle</span>
+      <span class="contact-link-value">https://www.linkedin.com/in/abdelaali-safir-0b34aa29b/</span>
     </a>
-    <a href="https://github.com/yourhandle" class="contact-link" target="_blank" rel="noopener">
+    <a href="https://github.com/SAFIR-abdelaali" class="contact-link" target="_blank" rel="noopener">
       <span class="contact-link-label">GitHub</span>
-      <span class="contact-link-value">@yourhandle</span>
+      <span class="contact-link-value">https://github.com/SAFIR-abdelaali</span>
     </a>
-    <a href="/resume.pdf" class="contact-link" target="_blank" rel="noopener">
+    <a href="/cv.pdf" class="contact-link" target="_blank" rel="noopener">
       <span class="contact-link-label">Résumé</span>
       <span class="contact-link-value">Download PDF</span>
     </a>
@@ -860,23 +803,6 @@
   <span>Built with intention.</span>
 </footer>
 
-<script>
-  const input = document.getElementById('pfp-input');
-  const img = document.getElementById('pfp-img');
-  const placeholder = document.getElementById('pfp-placeholder');
-
-  input.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      img.src = ev.target.result;
-      img.style.display = 'block';
-      placeholder.style.display = 'none';
-    };
-    reader.readAsDataURL(file);
-  });
-</script>
 
 </body>
 </html>

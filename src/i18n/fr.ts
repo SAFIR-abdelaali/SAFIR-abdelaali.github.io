@@ -1,0 +1,143 @@
+import type { Messages } from './en';
+
+export const fr: Messages = {
+  meta: {
+    title: 'Abdelaali Safir - Portfolio',
+    description: 'Abdelaali Safir, AI & Data Engineer à Casablanca. Pipelines temps réel, IA générative et machine learning.',
+    ogDescription: 'AI & Data Engineer. En bref, la data est mon obsession.',
+  },
+  skip: 'Aller aux projets',
+  nav: {
+    label: 'Navigation principale',
+    projects: 'Projets',
+    skills: 'Compétences',
+    about: 'À propos',
+    experience: 'Expérience',
+    contact: 'Contact',
+  },
+  controls: {
+    label: "Réglages d'affichage",
+    language: 'Langue',
+    theme: 'Basculer entre le thème clair et le thème sombre',
+    motion: 'Mettre en pause ou reprendre les animations',
+  },
+  hero: {
+    label: 'Présentation',
+    role: 'AI & Data Engineer · Data Scientist',
+    name: 'Abdelaali Safir',
+    sub: 'En bref, la data est mon obsession.',
+    viewProjects: 'Voir les projets',
+    resume: 'CV',
+    canvas:
+      "Pipeline de données animé : de petits personnages de données passent par l'ingestion, le stockage, la transformation et l'entrepôt, puis sautent dans un tableau de bord.",
+    stages: ['Ingestion', 'Stockage', 'Transformation', 'Entrepôt', 'Visualisation'],
+  },
+  more: { show: 'Voir plus', hide: 'Voir moins' },
+  projects: {
+    title: 'Projets',
+    cdc: {
+      title: 'CDC temps réel & assistant IA',
+      line: 'Le revenue management hôtelier, interrogé en langage naturel.',
+      viz: "Les changements de la base de données alimentent en continu un assistant décisionnel, réduisant jusqu'à 35 % le temps de décision",
+      caption: 'temps de décision',
+    },
+    sir: {
+      title: 'Détection de rumeurs SIR',
+      line: 'BERT et une simulation SIR. AUC-ROC 0,93.',
+      viz: 'Courbes illustratives du modèle SIR : les susceptibles diminuent, les infectés atteignent un pic, les rétablis augmentent',
+    },
+    job: {
+      title: 'JobRecruit',
+      line: 'Le recrutement, entretiens intégrés.',
+      viz: 'Des candidats rejoignent un entretien vidéo intégré',
+    },
+    stock: {
+      title: 'Pipeline de données boursières',
+      line: 'De Kafka à Power BI, en micro-batchs.',
+      viz: 'Des couches de données brutes, nettoyées et de production alimentent un tableau de bord',
+      layers: ['Production', 'Nettoyées', 'Brutes'],
+    },
+    fraud: {
+      title: 'Détection de fraude',
+      line: 'Repère les transactions frauduleuses.',
+      viz: 'Précision de 92 %, rappel de 77 %',
+      precision: 'Précision',
+      recall: 'Rappel',
+    },
+    tool: {
+      title: 'ToolRent',
+      line: "Entre voisins, on loue ses outils au lieu de les acheter.",
+      viz: 'Des microservices reliés autour d’un outil partagé',
+    },
+  },
+  skills: {
+    title: 'Compétences',
+    languages: 'Langages',
+    ai: 'IA & ML',
+    data: 'Data engineering',
+    apps: 'Applications & API',
+    devops: 'DevOps & cloud',
+    viz: 'Visualisation',
+    methods: 'Méthodes',
+    methodItems: ['Tests A/B', 'Inférence causale', 'Bayésien', 'Séries temporelles'],
+  },
+  about: {
+    title: 'À propos',
+    portrait: 'Portrait d’Abdelaali Safir',
+    location: 'Localisation',
+    locationValue: 'Casablanca, mobilité vers Marrakech et Rabat',
+    education: 'Formation',
+    educationValue: 'Génie informatique, ENSEM',
+    languages: 'Langues',
+    languageItems: ['Anglais C1', 'Français B2', 'Arabe, langue maternelle'],
+    certification: 'Certification',
+    certificationItems: ['Oracle OCI AI Foundations Associate, 2025'],
+    bio: [
+      "J'étudie le génie informatique à l'ENSEM Casablanca, diplôme prévu en 2027. Je construis des systèmes de données et d'IA de bout en bout, de l'ingestion temps réel jusqu'aux tableaux de bord et aux assistants que les gens utilisent vraiment.",
+      "Mon approche est pragmatique : comprendre d'abord le problème, construire le modèle le plus simple qui le résout, puis itérer. L'interprétabilité, la reproductibilité et l'impact réel du travail comptent beaucoup pour moi.",
+      "En dehors du travail, je suis les nouveautés du machine learning, je contribue à des outils open source et, de temps en temps, je sors prendre l'air.",
+    ],
+  },
+  experience: {
+    title: 'Expérience',
+    jobs: [
+      {
+        role: 'Stage AI/Data Engineer',
+        date: 'Juillet — août 2026',
+        tiles: [
+          { title: 'CDC temps réel', chips: ['Debezium', 'Kafka', 'ZooKeeper', 'Faust'] },
+          { title: 'GenAI Text-to-SQL', chips: ['Ollama', 'LangChain', 'Gemma 4', 'FastAPI'] },
+          { title: 'Chatbot décisionnel', chips: ['Next.js', 'Docker', "Jusqu'à 35 % de temps de décision en moins"] },
+        ],
+      },
+      {
+        role: 'Stage Data Scientist',
+        date: 'Juin 2025',
+        tiles: [
+          { title: 'Benchmarking ML', chips: ['Score de Wilson', 'K-Means', 'DBSCAN', 'GMM', 'Hiérarchique'] },
+          { title: 'Pipeline ETL', chips: ['NDJSON issu du web scraping', 'CSV', 'Python'] },
+          { title: 'Livraison', chips: ['Gradio', 'Hugging Face', 'Note de 17/20'] },
+        ],
+      },
+    ],
+  },
+  contact: {
+    title: 'Contact',
+    email: 'E-mail',
+    name: 'Nom',
+    message: 'Message',
+    botLabel: 'Laissez ce champ vide',
+    send: 'Envoyer le message',
+    sending: 'Envoi en cours',
+    errors: {
+      nameRequired: 'Veuillez indiquer votre nom.',
+      emailRequired: 'Veuillez indiquer votre e-mail.',
+      emailInvalid: 'Cet e-mail semble incomplet.',
+      messageRequired: 'Veuillez écrire un message.',
+    },
+    sent: 'Message envoyé. Je vous réponds très vite.',
+    notConnected: "Ce formulaire n'est pas encore connecté. Écrivez-moi à",
+    failed: "Votre message n'est pas parti. Réessayez, ou écrivez-moi à",
+  },
+  footer: '© 2026 A.Safir',
+};

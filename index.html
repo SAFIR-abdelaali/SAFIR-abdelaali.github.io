@@ -1,810 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Abdelaali Safir - Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #f7f5f0;
-    --surface: #ffffff;
-    --text: #1a1814;
-    --muted: #6b6760;
-    --accent: #2a4a3e;
-    --accent-light: #e8f0ec;
-    --accent-glow: rgba(42, 74, 62, 0.45);
-    --border: rgba(26,24,20,0.10);
-    --border-strong: rgba(26,24,20,0.18);
-    --tag-bg: #edeae4;
-    --tag-text: #3d3b37;
-    --serif: 'DM Serif Display', Georgia, serif;
-    --mono: 'DM Mono', 'Courier New', monospace;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #111210;
-      --surface: #1c1e1b;
-      --text: #e8e4dc;
-      --muted: #8a8780;
-      --accent: #7bbda8;
-      --accent-light: #1a2d27;
-      --accent-glow: rgba(123, 189, 168, 0.55);
-      --border: rgba(232,228,220,0.08);
-      --border-strong: rgba(232,228,220,0.15);
-      --tag-bg: #252620;
-      --tag-text: #c4c0b8;
-    }
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 14px;
-    line-height: 1.75;
-    font-weight: 300;
-    min-height: 100vh;
-  }
-
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 3rem;
-    background: var(--bg);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--muted);
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--text); text-decoration: none; }
-
-  /* ── HERO ── */
-  #hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
-    padding-top: 64px;
-  }
-
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5rem 3rem 5rem 3rem;
-    border-right: 0.5px solid var(--border);
-  }
-
-  .hero-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-name {
-    font-family: var(--serif);
-    font-size: clamp(3rem, 5vw, 5rem);
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-name em {
-    font-style: italic;
-  }
-
-  .neon {
-    color: var(--accent);
-    text-shadow: 0 0 6px var(--accent-glow), 0 0 16px var(--accent-glow);
-  }
-
-  .neon-title {
-    text-shadow: 0 0 10px var(--accent-glow), 0 0 24px var(--accent-glow);
-  }
-
-  .hero-tagline {
-    color: var(--muted);
-    font-size: 13px;
-    max-width: 380px;
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border: 0.5px solid var(--border-strong);
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .hero-cta:hover {
-    background: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
-    text-decoration: none;
-  }
-
-  .hero-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 3rem;
-    position: relative;
-  }
-
-  /* ── PROFILE PICTURE ZONE ── */
-  .pfp-wrapper {
-    width: 240px;
-    height: 240px;
-    position: relative;
-    margin-bottom: 2rem;
-  }
-
-  .pfp-frame {
-    width: 240px;
-    height: 240px;
-    border: 0.5px solid var(--border-strong);
-    background: var(--surface);
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .pfp-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-    width: 100%;
-    max-width: 320px;
-    margin-top: 2rem;
-  }
-
-  .stat {
-    background: var(--bg);
-    padding: 1rem;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    line-height: 1;
-    color: var(--text);
-  }
-
-  .stat-label {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 4px;
-  }
-
-  /* ── SECTIONS ── */
-  section {
-    padding: 5rem 3rem;
-    border-top: 0.5px solid var(--border);
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .section-num {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-
-  .section-title {
-    font-family: var(--serif);
-    font-size: 2rem;
-    letter-spacing: -0.02em;
-    color: var(--text);
-  }
-
-  /* ── ABOUT ── */
-  #about .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-  }
-
-  .about-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .sidebar-block { }
-
-  .sidebar-label {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-  }
-
-  .sidebar-value {
-    color: var(--text);
-    font-size: 13px;
-  }
-
-  .about-text p {
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.9;
-    margin-bottom: 1.25rem;
-    max-width: 600px;
-  }
-
-  .about-text p:last-child { margin-bottom: 0; }
-
-  /* ── SKILLS ── */
-  #skills .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0;
-    border: 0.5px solid var(--border);
-  }
-
-  .skill-block {
-    padding: 2rem;
-    border-right: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .skill-block:nth-child(3n) { border-right: none; }
-
-  .skill-category {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-
-  .skill-items { display: flex; flex-wrap: wrap; gap: 6px; }
-
-  .tag {
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    font-size: 11px;
-    padding: 3px 10px;
-    letter-spacing: 0.04em;
-  }
-
-  /* ── PROJECTS ── */
-  #projects .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border: 0.5px solid var(--border);
-  }
-
-  .project-card {
-    padding: 2.5rem;
-    border-right: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-    transition: background 0.2s;
-  }
-
-  .project-card:hover { background: var(--surface); }
-
-  .project-card:nth-child(2n) { border-right: none; }
-
-  .project-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
-
-  .project-title {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-
-  .project-arrow {
-    color: var(--muted);
-    font-size: 18px;
-    transition: transform 0.2s, color 0.2s;
-  }
-
-  .project-card:hover .project-arrow {
-    transform: translate(3px, -3px);
-    color: var(--accent);
-  }
-
-  .project-desc {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-  }
-
-  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-  /* ── EXPERIENCE ── */
-  #experience .exp-list { display: flex; flex-direction: column; }
-
-  .exp-item {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 2rem;
-    padding: 2rem 0;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .exp-item:first-child { border-top: 0.5px solid var(--border); }
-
-  .exp-period {
-    font-size: 12px;
-    color: var(--muted);
-    padding-top: 2px;
-  }
-
-  .exp-role {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    letter-spacing: -0.02em;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-
-  .exp-company {
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.75rem;
-  }
-
-  .exp-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.8;
-  }
-
-  /* ── CONTACT ── */
-  #contact {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    align-items: center;
-    min-height: 320px;
-    padding: 0;
-  }
-
-  .contact-left {
-    padding: 5rem 3rem;
-    border-right: 0.5px solid var(--border);
-  }
-
-  .contact-headline {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-headline em {
-    font-style: italic;
-  }
-
-  .contact-sub {
-    font-size: 13px;
-    color: var(--muted);
-    max-width: 360px;
-    line-height: 1.8;
-  }
-
-  .contact-right {
-    padding: 5rem 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 1.5rem;
-    border: 0.5px solid var(--border);
-    color: var(--text);
-    font-size: 13px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .contact-link:hover {
-    border-color: var(--accent);
-    background: var(--accent-light);
-    text-decoration: none;
-  }
-
-  .contact-link-label { letter-spacing: 0.06em; }
-  .contact-link-value { color: var(--muted); font-size: 12px; }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 0.5px solid var(--border);
-    padding: 2rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  footer span {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.25rem; }
-
-    #hero { grid-template-columns: 1fr; }
-    .hero-left { padding: 3rem 1.5rem 2rem; border-right: none; }
-    .hero-right { padding: 2rem 1.5rem 3rem; border-top: 0.5px solid var(--border); }
-
-    section { padding: 3rem 1.5rem; }
-
-    #about .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-    #projects .projects-grid { grid-template-columns: 1fr; }
-    .project-card:nth-child(2n) { border-right: 0.5px solid var(--border); }
-
-    #contact { grid-template-columns: 1fr; }
-    .contact-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 0.5px solid var(--border); }
-    .contact-right { padding: 3rem 1.5rem; }
-
-    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-
-    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <span class="nav-logo">A.Safir<em style="font-style:italic"></em></span>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">Data Scientist · Software Engineer</p>
-    <h1 class="hero-name neon-title">Abdelaali<br /><em class="neon">Safir</em></h1>
-    <p class="hero-tagline">
-      In short, I'm a data <em class="neon">FREAK</em>.
-    </p>
-    <a href="#projects" class="hero-cta">View my work &rarr;</a>
-  </div>
-
-  <div class="hero-right">
-    <!-- PROFILE PICTURE -->
-    <div class="pfp-frame" id="pfp-frame">
-      <img id="pfp-img" src="assets/my pic.png" alt="Profile picture" />
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Years</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Projects</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-label">Papers</div>
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d1b2a" />
+    <title>Abdelaali Safir - Portfolio</title>
+    <!--head-meta-->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236d1426'/%3E%3Ccircle cx='11' cy='12' r='3.2' fill='%23fbf5ea'/%3E%3Ccircle cx='22' cy='10' r='3.2' fill='%23d3b5ab'/%3E%3Ccircle cx='16' cy='23' r='3.2' fill='%23f3e9da'/%3E%3C/svg%3E"
+    />
+    <!-- Runs before first paint: theme, language redirect, and the "motion is coming" flag. -->
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+        var t = get('theme');
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        d.setAttribute('data-theme', t);
+        document.querySelector('meta[name=theme-color]').content = t === 'light' ? '#f3e9da' : '#0d1b2a';
+        var m = get('motion');
+        d.setAttribute('data-motion', m === 'off' ? 'still' : m === 'on' ? 'full' : matchMedia('(prefers-reduced-motion: reduce)').matches ? 'calm' : 'full');
+        if (location.pathname === '/') {
+          var l = get('lang');
+          if (!l) { var n = (navigator.language || '').slice(0, 2); if (n === 'fr' || n === 'ar') l = n; }
+          if (l === 'fr' || l === 'ar') { location.replace('/' + l + '/' + location.search + location.hash); return; }
+        }
+      })();
+    </script>
+    <!-- Loader styles are inline and repeat the theme values: this paints before the stylesheet arrives. -->
+    <style>
+      .loader { display: none; }
+      .js .loader {
+        --l-bg: #0d1b2a; --l-accent: #e0e1dd; --l-soft: #778da9;
+        display: grid; place-items: center; position: fixed; inset: 0; z-index: 1000; background: var(--l-bg);
+      }
+      [data-theme='light'] .loader { --l-bg: #f3e9da; --l-accent: #6d1426; --l-soft: #7b3a44; }
+      .loader-ribbons { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .loader-ribbons path { fill: var(--l-bg); stroke: var(--l-accent); stroke-opacity: 0; stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+      .loader-icon { position: relative; display: grid; justify-items: center; gap: 12px; transition: opacity 0.3s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+      .loader-icon.is-out { opacity: 0; transform: scale(0.86); }
+      .loader-icon svg { width: 124px; height: auto; overflow: visible; }
+      .loader-pct { font: 600 13px/1 ui-monospace, Consolas, monospace; letter-spacing: 0.04em; color: var(--l-soft); }
+      .l-lights circle { fill: var(--l-soft); }
+      .l-lights circle:nth-child(odd) { animation: l-blink 1.3s ease-in-out infinite; }
+      .l-lights circle:nth-child(3) { animation-delay: 0.3s; }
+      .l-lights circle:nth-child(5) { animation-delay: 0.6s; }
+      @keyframes l-blink { 50% { opacity: 0.25; } }
+      .l-line { fill: none; stroke: var(--l-soft); stroke-width: 2.5; stroke-linecap: round; }
+      .l-wave { fill: var(--l-accent); animation: l-wave 2.4s linear infinite; }
+      .l-wave-back { opacity: 0.4; animation-duration: 3.4s; animation-direction: reverse; }
+      .l-bit { fill: var(--l-soft); font: 600 11px ui-monospace, Consolas, monospace; text-anchor: middle; opacity: 0; animation: l-bit 2.1s ease-out infinite; }
+      @keyframes l-wave { to { transform: translateX(-96px); } }
+      @keyframes l-bit { 0% { opacity: 0; transform: translateY(6px); } 30% { opacity: 0.9; } 100% { opacity: 0; transform: translateY(-20px); } }
+      html[data-motion='still'] .loader * { animation: none; transition: none; }
+    </style>
+  </head>
+  <body>
+    <div class="loader" id="loader" role="status" aria-label="Loading">
+      <svg class="loader-ribbons" id="loader-ribbons" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div class="loader-icon" id="loader-icon">
+        <svg viewBox="0 -18 96 130" aria-hidden="true">
+          <defs>
+            <clipPath id="l-tank"><path d="M12 16V96A36 10 0 0 0 84 96V16A36 10 0 0 0 12 16Z" /></clipPath>
+          </defs>
+          <text class="l-bit" x="30" y="-2">0</text>
+          <text class="l-bit" x="48" y="-4" style="animation-delay: 0.7s">1</text>
+          <text class="l-bit" x="66" y="-2" style="animation-delay: 1.4s">0</text>
+          <g clip-path="url(#l-tank)">
+            <g id="loader-level" transform="translate(0 110)">
+              <path class="l-wave l-wave-back" d="M-96 0q12-6 24 0t24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0V130H-96Z" />
+              <path class="l-wave" d="M-96 3q12 6 24 0t24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0 24 0V130H-96Z" />
+            </g>
+          </g>
+          <ellipse class="l-line" cx="48" cy="16" rx="36" ry="10" />
+          <path class="l-line" d="M12 16V96A36 10 0 0 0 84 96V16" />
+          <path class="l-line" d="M12 43A36 10 0 0 0 84 43M12 70A36 10 0 0 0 84 70" />
+          <g class="l-lights">
+            <circle cx="24" cy="36" r="2.6" /><circle cx="33" cy="38" r="2.6" />
+            <circle cx="24" cy="63" r="2.6" /><circle cx="33" cy="65" r="2.6" />
+            <circle cx="24" cy="90" r="2.6" /><circle cx="33" cy="92" r="2.6" />
+          </g>
+        </svg>
+        <span class="loader-pct" id="loader-pct" dir="ltr">0%</span>
       </div>
     </div>
-  </div>
-</section>
+    <script>
+      // Fills a database icon with real load progress, then splits into wavy vertical ribbons that slide apart.
+      (function () {
+        var root = document.documentElement, el = document.getElementById('loader');
+        if (!root.classList.contains('js')) return;
+        root.classList.add('is-loading');
+        el.setAttribute('aria-label', { fr: 'Chargement', ar: 'جارٍ التحميل' }[root.lang] || 'Loading');
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2 class="section-title neon-title">About</h2>
-  </div>
-  <div class="about-grid">
-    <div class="about-sidebar">
-      <div class="sidebar-block">
-        <div class="sidebar-label">Location</div>
-        <div class="sidebar-value">Casablanca, MA</div>
-      </div>
-      <div class="sidebar-block">
-        <div class="sidebar-label">Education</div>
-        <div class="sidebar-value">Software engineering at<br /><em class="neon">ENSEM - Casablanca</em></div>
-      </div>
-      <div class="sidebar-block">
-        <div class="sidebar-label">Status</div>
-        <div class="sidebar-value" style="color:var(--accent);">Open to opportunities</div>
-      </div>
-    </div>
-    <div class="about-text">
-      <p>
-        I'm a software engineer with a data scientist specialization, with  1 month of internship experience bridging the gap between raw data and real-world impact. I've shipped production ML systems at the intersection of NLP, recommendation engines, and causal inference — working across startups and enterprise teams.
-      </p>
-      <p>
-        My approach is pragmatic: understand the problem first, build the simplest model that solves it, then iterate. I care deeply about interpretability, reproducibility, and making sure the work actually lands.
-      </p>
-      <p>
-        Outside of work, I explore new developments in machine learning, contribute to open-source tooling, and — occasionally — go outside.
-      </p>
-    </div>
-  </div>
-</section>
+        var svg = document.getElementById('loader-ribbons'), icon = document.getElementById('loader-icon');
+        var level = document.getElementById('loader-level'), pct = document.getElementById('loader-pct');
+        var block = function (e) { e.preventDefault(); e.stopPropagation(); };
+        var opts = { capture: true, passive: false };
+        addEventListener('wheel', block, opts);
+        addEventListener('touchmove', block, opts);
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title neon-title">Skills</h2>
-  </div>
-  <div class="skills-grid">
-    <div class="skill-block">
-      <div class="skill-category">Programming Languages</div>
-      <div class="skill-items">
-        <span class="tag">Python</span>
-        <span class="tag">R</span>
-        <span class="tag">SQL/PLSQL</span>
-        <span class="tag">C</span>
-        <span class="tag">C++</span>
-        <span class="tag">Java</span>
-        <span class="tag">JEE</span>
-        <span class="tag">SWI-Prolog</span>
-        <span class="tag">Javascript</span>
-        <span class="tag">React</span>
-        <span class="tag">Solidity</span>
-        <span class="tag">Golang</span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <div class="skill-category">ML / DL</div>
-      <div class="skill-items">
-        <span class="tag">PyTorch</span>
-        <span class="tag">scikit-learn</span>
-        <span class="tag">XGBoost</span>
-        <span class="tag">Hugging Face</span>
-        <span class="tag">JAX</span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <div class="skill-category">Data & Infra</div>
-      <div class="skill-items">
-        <span class="tag">Spark</span>
-        <span class="tag">dbt</span>
-        <span class="tag">Airflow</span>
-        <span class="tag">BigQuery</span>
-        <span class="tag">Snowflake</span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <div class="skill-category">MLOps</div>
-      <div class="skill-items">
-        <span class="tag">MLflow</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Kubernetes</span>
-        <span class="tag">FastAPI</span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <div class="skill-category">Visualization</div>
-      <div class="skill-items">
-        <span class="tag">Matplotlib</span>
-        <span class="tag">Plotly</span>
-        <span class="tag">Seaborn</span>
-        <span class="tag"></span>
-      </div>
-    </div>
-    <div class="skill-block">
-      <div class="skill-category">Methods</div>
-      <div class="skill-items">
-        <span class="tag">A/B Testing</span>
-        <span class="tag">Causal Inf.</span>
-        <span class="tag">Bayesian</span>
-        <span class="tag">Time Series</span>
-      </div>
-    </div>
-  </div>
-</section>
+        var seen = false;
+        try { seen = !!sessionStorage.getItem('loaded'); sessionStorage.setItem('loaded', '1'); } catch (e) {}
+        var minTime = seen ? 700 : 1700, maxTime = 7000;
+        var loaded = document.readyState === 'complete', fontsDone = !document.fonts;
+        addEventListener('load', function () { loaded = true; });
+        if (document.fonts) document.fonts.ready.then(function () { fontsDone = true; });
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title neon-title">Projects</h2>
-  </div>
-  <div class="projects-grid">
-    <a href="https://github.com/SAFIR-abdelaali/Fraud-Detection" class="project-card" target="_blank" rel="noopener">
-      <div class="project-top">
-        <h3 class="project-title">Fraud Detection system</h3>
-        <span class="project-arrow">↗</span>
-      </div>
-      <p class="project-desc">
-        A machine learning solution designed to detect fraudulent transaction with high precision 92% and recall 77%, significantly reducing financial losses. 
-      </p>
-      <div class="project-tags">
-        <span class="tag">XGBoost</span>
-        <span class="tag">Streamlit</span>
-        <span class="tag">Scikit-learn</span>
-      </div>
-    </a>
-    <a href="https://github.com/SAFIR-abdelaali/SIR-Rumor-Detection" class="project-card" target="_blank" rel="noopener">
-      <div class="project-top">
-        <h3 class="project-title">SIR Rumor detection</h3>
-        <span class="project-arrow">↗</span>
-      </div>
-      <p class="project-desc">
-        rumor detection system for Twitter that combines a machine learning classifier with an SIR (Susceptible-Infected-Recovered) simulation to estimate spread impact
-      </p>
-      <div class="project-tags">
-        <span class="tag">XGBoost</span>
-        <span class="tag">Scikit-learn</span>
-        <span class="tag">NLP</span>
-        <span class="tag">SIR Model</span>
-        <span class="tag">Streamlit</span>
-      </div>
-    </a>
-    <a href="https://github.com/SAFIR-abdelaali/Job-recruitement-web-app" class="project-card" target="_blank" rel="noopener">
-      <div class="project-top">
-        <h3 class="project-title">JobReruit</h3>
-        <span class="project-arrow">↗</span>
-      </div>
-      <p class="project-desc">
-        A recruitment platform with built-in interviewing — no hopping between tools.
-      </p>
-      <div class="project-tags">
-        <span class="tag">Java Entreprise Edition</span>
-        <span class="tag">Jakarta EE</span>
-        <span class="tag">Hibernate</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">Apache Maven</span>
-        <span class="tag">JavaMail</span>
-      </div>
-    </a>
-    <a href="https://github.com/SAFIR-abdelaali/ToolRent" class="project-card" target="_blank" rel="noopener">
-      <div class="project-top">
-        <h3 class="project-title">ToolRent</h3>
-        <span class="project-arrow">↗</span>
-      </div>
-      <p class="project-desc">
-        A microservice solution allowing neighbors to rent tools (drills, ladders, etc.), reducing overconsumption through smart resource sharing.
-      </p>
-      <div class="project-tags">
-        <span class="tag">Javascript</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Python</span>
-        <span class="tag">Fast-API</span>
-        <span class="tag">Amazon S3</span>
-      </div>
-    </a>
-  </div>
-</section>
+        var uncover = function () {
+          root.classList.remove('is-loading');
+          removeEventListener('wheel', block, opts);
+          removeEventListener('touchmove', block, opts);
+          // If the app bundle still hasn't run, drop the hidden starting states so the page stays readable.
+          if (!window.__booted) root.classList.remove('js');
+          dispatchEvent(new Event('loader:done'));
+        };
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title neon-title">Experience</h2>
-  </div>
-  <div class="exp-list">
-    <div class="exp-item">
-      <div class="exp-period">June — July 2025</div>
-      <div>
-        <div class="exp-role">Data Science Internship</div>
-        <div class="exp-company">IAWEB.DEV</div>
-        <p class="exp-desc">Built a comparative ML model evaluation platform for ranking and clustering, implementing algorithms like Wilson Score, K-means, DBSCAN, GMM, and Hierarchical Clustering, with end-to-end data engineering (NDJSON to CSV), statistical benchmarking via Kendall's tau-b, an interactive Gradio interface, and full system design using UML and PowerAMC.</p>
-      </div>
-    </div>
-  </div>
-</section>
+        var split = function () {
+          var mode = root.dataset.motion;
+          if (mode === 'still') { uncover(); el.remove(); return; }
+          if (mode === 'calm') {
+            uncover();
+            el.style.transition = 'opacity 0.3s ease';
+            el.style.opacity = '0';
+            setTimeout(function () { el.remove(); }, 320);
+            return;
+          }
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-left">
-    <h2 class="contact-headline neon-title">Let's<br /><em class="neon">work</em><br />together.</h2>
-    <p class="contact-sub">Open to full-time roles, consulting, and interesting side projects. Always happy to chat data science.</p>
-  </div>
-  <div class="contact-right">
-    <a href="mailto:safirabdelaali@gmail.com" class="contact-link">
-      <span class="contact-link-label">Email</span>
-      <span class="contact-link-value">safirabdelaali@gmail.com</span>
-    </a>
-    <a href="https://www.linkedin.com/in/abdelaali-safir-0b34aa29b/" class="contact-link" target="_blank" rel="noopener">
-      <span class="contact-link-label">LinkedIn</span>
-      <span class="contact-link-value">https://www.linkedin.com/in/abdelaali-safir-0b34aa29b/</span>
-    </a>
-    <a href="https://github.com/SAFIR-abdelaali" class="contact-link" target="_blank" rel="noopener">
-      <span class="contact-link-label">GitHub</span>
-      <span class="contact-link-value">https://github.com/SAFIR-abdelaali</span>
-    </a>
-    <a href="assets/cv.pdf" class="contact-link" target="_blank" rel="noopener">
-      <span class="contact-link-label">Résumé</span>
-      <span class="contact-link-value">Download PDF</span>
-    </a>
-  </div>
-</section>
+          var n = innerWidth < 640 ? 4 : 7, rtl = root.dir === 'rtl';
+          var CRACK = 240, DUR = 980, STAGGER = 62, paths = [], i;
+          for (i = 0; i < n; i++) {
+            paths.push(document.createElementNS('http://www.w3.org/2000/svg', 'path'));
+            svg.appendChild(paths[i]);
+          }
+          var seam = function (k, y, t, amp) {
+            if (k === 0) return -3;
+            if (k === n) return 103;
+            return (k / n) * 100 + amp * (Math.sin(y * 0.11 + k * 1.9 + t * 0.0032) + 0.5 * Math.sin(y * 0.047 - t * 0.0021 + k));
+          };
+          var ease = function (x) { return x < 0.5 ? 8 * x * x * x * x : 1 - Math.pow(-2 * x + 2, 4) / 2; };
+          var t0 = performance.now(), shown = false;
+          var total = CRACK + DUR + (n - 1) * STAGGER;
+          var frame = function (now) {
+            var t = now - t0;
+            for (var r = 0; r < n; r++) {
+              var order = rtl ? n - 1 - r : r;
+              var p = Math.max(0, Math.min(1, (t - CRACK - order * STAGGER) / DUR));
+              var amp = 1.1 + ease(p) * 1.6, d = '', y;
+              for (y = -3; y <= 103; y += 1.5) d += (d ? 'L' : 'M') + seam(r, y, t, amp).toFixed(2) + ' ' + y;
+              // the leading ends ripple too, so no ribbon finishes in a straight cut
+              var a = seam(r, 103, t, amp), b = seam(r + 1, 103, t, amp), c = seam(r, -3, t, amp), e = seam(r + 1, -3, t, amp), j;
+              for (j = 1; j < 48; j++) d += 'L' + (a + ((b - a) * j) / 48).toFixed(2) + ' ' + (106 + 2.6 * Math.sin(j * 0.26 + r * 2 + t * 0.004)).toFixed(2);
+              for (y = 103; y >= -3; y -= 1.5) d += 'L' + seam(r + 1, y, t, amp).toFixed(2) + ' ' + y;
+              for (j = 47; j > 0; j--) d += 'L' + (c + ((e - c) * j) / 48).toFixed(2) + ' ' + (-6 + 2.6 * Math.sin(j * 0.26 + r * 3 - t * 0.004)).toFixed(2);
+              paths[r].setAttribute('d', d + 'Z');
+              paths[r].setAttribute('transform', 'translate(0 ' + ((r % 2 ? 1 : -1) * 112 * ease(p)).toFixed(2) + ')');
+              paths[r].style.strokeOpacity = Math.min(1, t / CRACK) * 0.75;
+            }
+            if (!shown) { shown = true; el.style.background = 'transparent'; icon.classList.add('is-out'); }
+            if (root.classList.contains('is-loading') && t > CRACK + 220) uncover();
+            if (t < total) requestAnimationFrame(frame);
+            else el.remove();
+          };
+          requestAnimationFrame(frame);
+        };
 
-<!-- FOOTER -->
-<footer>
-  <span>© 2026 A.Safir</span>
-  <span>Built with intention.</span>
-</footer>
-
-
-</body>
+        var start = performance.now(), last = start, p = 0;
+        var tick = function (now) {
+          var elapsed = now - start, dt = (now - last) / 1000;
+          last = now;
+          var ready = (loaded && fontsDone && window.__booted) || elapsed > maxTime;
+          var goal = Math.min(ready ? 1 : 0.92, elapsed / minTime);
+          p += (goal - p) * (1 - Math.exp(-dt * 7));
+          if (goal - p < 0.004) p = goal;
+          level.setAttribute('transform', 'translate(0 ' + (110 - p * 106).toFixed(2) + ')');
+          pct.textContent = Math.round(p * 100) + '%';
+          if (p >= 1) setTimeout(split, 200);
+          else requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      })();
+    </script>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

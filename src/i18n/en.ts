@@ -1,0 +1,143 @@
+export const en = {
+  meta: {
+    title: 'Abdelaali Safir - Portfolio',
+    description: 'Abdelaali Safir, AI and data engineer from Casablanca. Real-time pipelines, GenAI, and machine learning.',
+    ogDescription: 'AI and data engineer. In short, a data freak.',
+  },
+  skip: 'Skip to projects',
+  nav: {
+    label: 'Primary',
+    projects: 'Projects',
+    skills: 'Skills',
+    about: 'About',
+    experience: 'Experience',
+    contact: 'Contact',
+  },
+  controls: {
+    label: 'Display settings',
+    language: 'Language',
+    theme: 'Switch between light and dark theme',
+    motion: 'Pause or resume animations',
+  },
+  hero: {
+    label: 'Introduction',
+    role: 'AI & Data Engineer · Data Scientist',
+    name: 'Abdelaali Safir',
+    sub: "In short, I'm a data freak.",
+    viewProjects: 'View projects',
+    resume: 'Résumé',
+    canvas:
+      'Animated data pipeline: little data characters travel from ingestion through storage, transformation and the warehouse, then jump into a dashboard.',
+    stages: ['Ingest', 'Store', 'Transform', 'Warehouse', 'Visualize'],
+  },
+  more: { show: 'Show more', hide: 'Show less' },
+  projects: {
+    title: 'Projects',
+    cdc: {
+      title: 'Real-time CDC & AI Assistant',
+      line: 'Hotel revenue decisions, asked in plain language.',
+      viz: 'Database changes streaming into a decision assistant, cutting decision time by up to 35 percent',
+      caption: 'decision time',
+    },
+    sir: {
+      title: 'SIR Rumor Detection',
+      line: 'BERT plus an SIR simulation. AUC-ROC 0.93.',
+      viz: 'Illustrative SIR model curves: susceptible falls, infected peaks, recovered rises',
+    },
+    job: {
+      title: 'JobRecruit',
+      line: 'Recruitment with built-in interviewing.',
+      viz: 'Candidates connecting to a built-in video interview',
+    },
+    stock: {
+      title: 'Stock Market Data Pipeline',
+      line: 'Kafka to Power BI, in micro-batches.',
+      viz: 'Raw, cleaned and production data layers feeding a dashboard',
+      layers: ['Production', 'Cleaned', 'Raw'],
+    },
+    fraud: {
+      title: 'Fraud Detection',
+      line: 'Catches fraudulent transactions.',
+      viz: 'Precision 92 percent, recall 77 percent',
+      precision: 'Precision',
+      recall: 'Recall',
+    },
+    tool: {
+      title: 'ToolRent',
+      line: 'Neighbors rent tools instead of buying them.',
+      viz: 'Microservices connected around a shared tool',
+    },
+  },
+  skills: {
+    title: 'Skills',
+    languages: 'Languages',
+    ai: 'AI & ML',
+    data: 'Data engineering',
+    apps: 'Apps & APIs',
+    devops: 'DevOps & cloud',
+    viz: 'Visualization',
+    methods: 'Methods',
+    methodItems: ['A/B Testing', 'Causal Inference', 'Bayesian', 'Time Series'],
+  },
+  about: {
+    title: 'About',
+    portrait: 'Portrait of Abdelaali Safir',
+    location: 'Location',
+    locationValue: 'Casablanca, open to Marrakech & Rabat',
+    education: 'Education',
+    educationValue: 'Computer engineering, ENSEM',
+    languages: 'Languages',
+    languageItems: ['English C1', 'French B2', 'Arabic, native'],
+    certification: 'Certification',
+    certificationItems: ['Oracle OCI AI Foundations Associate, 2025'],
+    bio: [
+      "I'm a computer engineering student at ENSEM Casablanca, graduating in 2027. I build data and AI systems end to end, from real-time ingestion to the dashboards and assistants people actually use.",
+      'My approach is pragmatic: understand the problem first, build the simplest model that solves it, then iterate. I care deeply about interpretability, reproducibility, and making sure the work actually lands.',
+      'Outside of work, I explore new developments in machine learning, contribute to open-source tooling, and, occasionally, go outside.',
+    ],
+  },
+  experience: {
+    title: 'Experience',
+    jobs: [
+      {
+        role: 'Data Engineering Intern',
+        date: 'July — August 2026',
+        tiles: [
+          { title: 'Real-time CDC', chips: ['Debezium', 'Kafka', 'ZooKeeper', 'Faust'] },
+          { title: 'Text-to-SQL GenAI', chips: ['Ollama', 'LangChain', 'Gemma 4', 'FastAPI'] },
+          { title: 'Decision chatbot', chips: ['Next.js', 'Docker', 'Up to 35% less decision time'] },
+        ],
+      },
+      {
+        role: 'Data Science Intern',
+        date: 'June 2025',
+        tiles: [
+          { title: 'ML benchmarking', chips: ['Wilson score', 'K-Means', 'DBSCAN', 'GMM', 'Hierarchical'] },
+          { title: 'ETL pipeline', chips: ['Web scraped NDJSON', 'CSV', 'Python'] },
+          { title: 'Delivery', chips: ['Gradio', 'Hugging Face', 'Scored 17/20'] },
+        ],
+      },
+    ],
+  },
+  contact: {
+    title: 'Contact',
+    email: 'Email',
+    name: 'Name',
+    message: 'Message',
+    botLabel: 'Leave this empty',
+    send: 'Send message',
+    sending: 'Sending',
+    errors: {
+      nameRequired: 'Please add your name.',
+      emailRequired: 'Please add your email.',
+      emailInvalid: 'That email looks incomplete.',
+      messageRequired: 'Please write a message.',
+    },
+    sent: "Message sent. I'll get back to you soon.",
+    notConnected: "This form isn't connected yet. Please email me at",
+    failed: "Your message didn't send. Try again, or email me at",
+  },
+  footer: '© 2026 A.Safir',
+};
+
+export type Messages = typeof en;

@@ -20,8 +20,8 @@
         if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         d.setAttribute('data-theme', t);
         document.querySelector('meta[name=theme-color]').content = t === 'light' ? '#f3e9da' : '#0d1b2a';
-        var m = get('motion');
-        d.setAttribute('data-motion', m === 'off' ? 'still' : m === 'on' ? 'full' : matchMedia('(prefers-reduced-motion: reduce)').matches ? 'calm' : 'full');
+        // Full motion for everyone, as the owner chose. The pause button is how a visitor turns it off.
+        d.setAttribute('data-motion', get('motion') === 'off' ? 'still' : 'full');
         if (location.pathname === '/') {
           var l = get('lang');
           if (!l) { var n = (navigator.language || '').slice(0, 2); if (n === 'fr' || n === 'ar') l = n; }

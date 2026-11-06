@@ -10,9 +10,9 @@ if (typeof window !== 'undefined') gsap.registerPlugin(ScrollTrigger);
 export const EASE_SOFT = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
 /**
- * full: everything. calm: the OS asks for reduced motion, so small slow loops keep running but
- * smooth scroll, parallax, scrubbing and entrances are off. still: the visitor pressed pause.
- * The head script in index.html sets data-motion before first paint.
+ * full: everything, and the default for every visitor. still: the visitor pressed pause.
+ * calm: small slow loops keep running but smooth scroll, parallax, scrubbing and entrances are off.
+ * Nothing sets calm at the moment. The head script in index.html sets data-motion before first paint.
  */
 export type MotionMode = 'full' | 'calm' | 'still';
 const listeners = new Set<() => void>();
